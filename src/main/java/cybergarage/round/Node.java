@@ -10,12 +10,12 @@
 
 package org.cybergarage.round;
 
-import java.net.InetAddress;
 import java.net.*;
 import java.io.*;
 import org.json.*;
 import java.util.HashMap;
 import java.security.MessageDigest;
+import java.io.ByteArrayOutputStream;
 
 import org.cybergarage.round.rpc.*;
 
@@ -35,7 +35,8 @@ public class Node implements Comparable<Node>
 
 	public String getId()
 	{
-		return "";
+		String seed = this.host + ":" + Integer.toString(this.port);
+		return GetHashCode(seed);
 	}
 
 	public int compareTo(Node node) {
@@ -138,15 +139,19 @@ public class Node implements Comparable<Node>
   }
 
   public final static String GetHashCode(String seed) {
-	  MessageDigest md = MessageDigest.getInstance("SHA256withECDSA");
-	  md.update(seed.getBytes());
-	  byte[] digest = md.digest();
+    try {
+      MessageDigest md = MessageDigest.getInstance("SHA-256");
+      md.update(seed.getBytes());
+      byte[] digest = md.digest();
 
-	  StringBuffer buffer = new StringBuffer();
-	  for(int i = 0; i < digest.length; i++) {
-		  buffer.append(Integer.toHexString(digest[i] & 0xff));
-	  }
-
-	  return buffer.toString();
+      ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+	  PrintStream ps = new PrintStream(buffer);
+      for (int i = 0; i < digest.length; i++) {
+    	  ps.printf("%02x", (digest[i] & 0xff));    	  
+      }
+      return buffer.toString();
+    } catch (java.security.NoSuchAlgorithmException e) {
+      return "";
+    }
   }
 }

@@ -12,6 +12,16 @@ package org.cybergarage.round;
 
 public class Client
 {
+	private Cluster cluster = new Cluster();
+	
 	public Client() {
+	}
+
+	public boolean addNode(Node node) {
+		return this.cluster.addNode(node);
+	}
+	
+	public Node getHandleNode(String hashCode) {
+		return this.cluster.getHandleNode(hashCode);
 	}
 }

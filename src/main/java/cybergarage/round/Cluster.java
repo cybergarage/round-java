@@ -19,10 +19,28 @@ public class Cluster
 	public Cluster() {
 	}
 
-	public Node [] getNodes() {
-		return nodes.toArray();
+	public boolean addNode(Node node) {
+		return this.nodes.add(node);
 	}
 
+	public Node [] getNodes() {
+		Node[] nodeArray = new Node[size()];
+		return nodes.toArray(nodeArray);
+	}
+	
+	public Node getHandleNode(String key) {
+		String keyCode = Node.GetHashCode(key);
+		Node nodes[] = getNodes();
+		int nodeCnt = size();
+		for (int n=(nodeCnt-1); 0 < n; n--) {
+			Node node = nodes[n];
+			String nodeCode = node.getId();
+			if (0 < nodeCode.compareTo(keyCode)) 
+				return node;
+		}
+		return nodes[0];
+	}
+	
 	public int size() {
 		return nodes.size();
 	}

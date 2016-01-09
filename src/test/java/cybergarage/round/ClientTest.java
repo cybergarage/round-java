@@ -14,8 +14,6 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-import org.json.JSONObject;
-
 /**
  * Integration tests for the Round client
  */

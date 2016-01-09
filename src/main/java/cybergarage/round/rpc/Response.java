@@ -10,9 +10,6 @@
 
 package org.cybergarage.round.rpc;
 
-import org.json.*;
-import org.cybergarage.round.Error;
-
 public class Response extends Message
 {
 	public Response() {

@@ -7,5 +7,5 @@
 /**
  * The Java binding for Round.
  */
-package org.cybergarage.round.node;
+package org.cybergarage.round.rpc;
 
