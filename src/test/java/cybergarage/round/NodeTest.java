@@ -28,7 +28,7 @@ public class NodeTest
     Assert.assertEquals(id.length(), Const.NODE_DIGEST_LENGTH);
   }
 
-    @Test
+    //@Test
     public void testSetRegistry() throws Exception {
         Node node = new Node("192.168.100.14", Node.DEFAULT_PORT);
 
