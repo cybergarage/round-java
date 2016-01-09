@@ -1,0 +1,63 @@
+#!/usr/bin/perl
+print<<HEADER;
+/******************************************************************
+*
+* Round for Java
+*
+* Copyright (C) Satoshi Konno 2015
+*
+* This is licensed under BSD-style license, see file COPYING.
+*
+******************************************************************/
+
+package org.cybergarage.round;
+
+public class Const
+{
+HEADER
+
+sub GetConstantType {
+	$type = "String";
+  if ($1 =~ /^[0-9]*$/) {
+	  $type = "int";
+	} elsif ($1 =~ /^[0-9.]*$/) {
+		$type = "double";
+  }
+	return $type;
+}
+
+# Constants
+
+@const_lines = `more ../../../../../../../../round/const/constants.csv | awk '/./' | awk '\$0 !~ /^#/{print \$0}'`;
+foreach $const_line (@const_lines) {
+  @const = split(/,/, $const_line);
+  $const[0] =~ s/([a-z])/\u$1/g;
+  $const[1] =~ s/^\s*(.*?)\s*$/$1/;
+	$type = "String";
+  if ($const[1] =~ /^[0-9]*$/) {
+	  $type = "int";
+	} elsif ($const[1] =~ /^[0-9.]*$/) {
+		$type = "double";
+  }
+#$type = GetConstantType($const[1]);
+  print "\tpublic static " . $type . " " . $const[0] . " = " . $const[1] . ";\n";
+}
+
+# Defaults
+
+print "\n";
+@const_lines = `more ../../../../../../../../round/const/defaults.csv | awk '/./' | awk '\$0 !~ /^#/{print \$0}'`;
+foreach $const_line (@const_lines) {
+  @const = split(/,/, $const_line);
+  $const[0] =~ s/([a-z])/\u$1/g;
+  $const[1] =~ s/^\s*(.*?)\s*$/$1/;
+  if ($const[1] =~ /^[0-9]*$/) {
+    print "\tpublic static int " . $const[0] . " = " . $const[1] . ";\n";
+  } else {
+    print "\tpublic static String " . $const[0] . " = " . $const[1] . ";\n";
+  }
+}
+
+print<<FOTTER;
+}
+FOTTER
