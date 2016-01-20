@@ -27,6 +27,11 @@ public class Node implements Comparable<Node>
 	private int port;
 	private JSONObject resObj;
 
+	public Node()
+	{
+		this("", 0);
+	}
+
 	public Node(String host, int port)
 	{
 		this.host = host;
