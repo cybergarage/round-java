@@ -9,6 +9,13 @@
     <version>0.1-SNAPSHOT</version>
 
 
+    <repositories>
+        <repository>
+            <id>org.cybergarage</id>
+            <url>http://www.cybergarage.org:8080/maven/repo/</url>
+        </repository>
+    </repositories>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -20,6 +27,11 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20090211</version>
+        </dependency>
+        <dependency>
+            <groupId>org.cybergarage.upnp</groupId>
+            <artifactId>cybergarage-upnp-core</artifactId>
+            <version>2.1.0</version>
         </dependency>
     </dependencies>
 
