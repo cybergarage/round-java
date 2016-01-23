@@ -8,7 +8,6 @@
     <artifactId>round</artifactId>
     <version>0.1-SNAPSHOT</version>
 
-
     <repositories>
         <repository>
             <id>org.cybergarage.upnp</id>
