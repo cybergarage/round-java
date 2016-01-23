@@ -11,8 +11,8 @@
 
     <repositories>
         <repository>
-            <id>org.cybergarage</id>
-            <url>http://www.cybergarage.org:8080/maven/repo/</url>
+            <id>cybergarage</id>
+            <url>http://repo.cybergarage.org:8080/maven/repo/</url>
         </repository>
     </repositories>
 
@@ -29,7 +29,7 @@
             <version>20090211</version>
         </dependency>
         <dependency>
-            <groupId>org.cybergarage.upnp</groupId>
+            <groupId>cybergarage</groupId>
             <artifactId>cybergarage-upnp-core</artifactId>
             <version>2.1.0</version>
         </dependency>

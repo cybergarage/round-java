@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.security.MessageDigest;
 import java.io.ByteArrayOutputStream;
 
-import org.cybergarage.round.rpc.*;
+//import org.cybergarage.upnp.*;
 
 public class Server
 {

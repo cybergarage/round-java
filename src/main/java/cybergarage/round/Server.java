@@ -17,11 +17,11 @@ import java.util.HashMap;
 import java.security.MessageDigest;
 import java.io.ByteArrayOutputStream;
 
-import org.cybergarage.round.rpc.Server as RpcServer;
+//import org.cybergarage.round.rpc.Server;
 
 public class Server
 {
-	private rpcServer = new RpcServer();
+	//private org.cybergarage.round.rpc.Server rpcServer = new org.cybergarage.round.rpc.Server();
 
 	public Server()
 	{
