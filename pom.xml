@@ -20,10 +20,6 @@
             <id>org.cybergarage.upnp</id>
             <url>http://repo.cybergarage.org:8080/maven/repo/</url>
         </repository>
-        <repository>
-            <id>org.cybergarage.x3d</id>
-            <url>http://repo.cybergarage.org:8080/maven/repo/</url>
-        </repository>
     </repositories>
 
     <dependencies>
@@ -42,11 +38,6 @@
             <groupId>org.cybergarage.upnp</groupId>
             <artifactId>cybergarage-upnp-core</artifactId>
             <version>[2.1.0,)</version>
-        </dependency>
-        <dependency>
-            <groupId>org.cybergarage.x3d</groupId>
-            <artifactId>cybergarage-x3d-core</artifactId>
-            <version>[1.4.0,)</version>
         </dependency>
     </dependencies>
 

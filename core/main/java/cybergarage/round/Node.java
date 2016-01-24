@@ -143,20 +143,7 @@ public class Node implements Comparable<Node>
     return removeRegistry("remove_registry", key);
   }
 
-  public final static String GetHashCode(String seed) {
-    try {
-      MessageDigest md = MessageDigest.getInstance("SHA-256");
-      md.update(seed.getBytes());
-      byte[] digest = md.digest();
-
-      ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-	  PrintStream ps = new PrintStream(buffer);
-      for (int i = 0; i < digest.length; i++) {
-    	  ps.printf("%02x", (digest[i] & 0xff));    	  
-      }
-      return buffer.toString();
-    } catch (java.security.NoSuchAlgorithmException e) {
-      return "";
-    }
+  public String GetHashCode() {
+	  return ConsistentHash.GetHashCode(getId())
   }
 }
