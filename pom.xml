@@ -17,7 +17,8 @@
 
     <repositories>
         <repository>
-            <id>org.cybergarage.upnp</id>
+            <id>org.cybergarage</id>
+            <name>CyberGarage Maven Repository</name>
             <url>http://repo.cybergarage.org:8080/maven/repo/</url>
         </repository>
     </repositories>
