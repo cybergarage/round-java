@@ -20,17 +20,16 @@ import org.json.*;
  */
 public class NodeTest
 {
-  @Test
-  public void testId() throws Exception {
-    Node node = new Node("127.0.0.1", Node.DEFAULT_PORT);
-    String id = node.getId();
-    Assert.assertNotNull(id);
-    Assert.assertEquals(id.length(), Const.NODE_DIGEST_LENGTH);
-  }
-
     @Test
+    public void testId() throws Exception {
+        Node node = new Node("127.0.0.1", Node.DEFAULT_PORT);
+        String id = node.getId();
+        Assert.assertNotNull(id);
+        Assert.assertEquals(id.length(), Const.NODE_DIGEST_LENGTH);
+    }
+
+    //@Test
     public void testSetRegistry() throws Exception {
-        /*
         Node node = new Node("192.168.100.14", Node.DEFAULT_PORT);
 
         String key = "key";
@@ -57,6 +56,5 @@ public class NodeTest
         Assert.assertTrue(node.removeRegistry(key));
         resObj = node.getResponse();
         System.out.println(resObj.toString());
-        */
     }
 }
