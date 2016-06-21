@@ -38,10 +38,23 @@ public class Node implements Comparable<Node>
 		this.port = port;
 	}
 
-	public String getId()
+	public String getHashSeed()
 	{
 		String seed = this.host + ":" + Integer.toString(this.port);
-		return GetHashCode(seed);
+		return seed;
+	}
+
+	public static String GetHashCode(String seed) {
+		return ConsistentHash.GetHashCode(seed);
+	}
+
+	public String getHashCode() {
+		return GetHashCode(getHashSeed());
+	}
+
+	public String getId()
+	{
+		return getHashCode();
 	}
 
 	public int compareTo(Node node) {
@@ -141,9 +154,5 @@ public class Node implements Comparable<Node>
   public boolean removeRegistry(String key)
   {
     return removeRegistry("remove_registry", key);
-  }
-
-  public String GetHashCode() {
-	  return ConsistentHash.GetHashCode(getId())
   }
 }
